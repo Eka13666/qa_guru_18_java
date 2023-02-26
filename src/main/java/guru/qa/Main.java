@@ -6,8 +6,7 @@ public class Main {
   public static void main(String[] args) {
 
     // Целочисленные типы данных
-    byte aByte = -128; // -128...127 (8 bit)
-    aByte = (byte) (aByte + 1);
+    byte aByte = 100; // -128...127 (8 bit)
     short aShort = -32768; // -32768...32767 (16 bit)
     //Используем
     int aInt = -2147483648; // -2147483648...2147483647 (32 bit)/Для расчетов: 2^(bit-1)
@@ -23,20 +22,47 @@ public class Main {
 
     // 1. Присвоение
     char bChar = 'a';
+    int b = 10;
+    int c = 20;
+    double d = 4.5;
 
-    // 2. Математические  + - / %
-    int sum = 5 + 3;
+// 2. Математические  + - / %
+    int sum = b + c;
     System.out.println("### result " + sum);
+    int diff = c - b;
+    System.out.println("### result " + diff);
+    int mult = b * c;
+    System.out.println("### result " + mult);
+    int div = c / b;
+    System.out.println("### result " + div);
+    int rem = c % b;
+    System.out.println("### result " + rem);
 
-    // 3. Сравнения >, <, >=, <=, !=, ==
-    System.out.println("### boolean result " + (3 == 3));
 
-    // 4. Логические &(И), && (сокращенное И), | (ИЛИ), || (сокращенное ИЛИ), ! (отрицание)
-    if (3 > 2 && 3 > 1) {
+// 3. Сравнения >, <, >=, <=, !=, ==
+    System.out.println("### boolean result " + (b < c));
+    System.out.println("### boolean result " + (b > c));
+    System.out.println("### boolean result " + (b == c));
+    System.out.println("### boolean result " + (b != c));
+
+// 4. Логические &(И), && (сокращенное И), | (ИЛИ), || (сокращенное ИЛИ), ! (отрицание)
+    if (b > c && b != 0) {
+      System.out.println("Fail");
+    } else {
+      System.out.println("Success");
     }
 
-    if (3 > 2 || 3 > 1) {
-    }
+    // Переполнение + Комбинация разных типов данных (String + byte)
+    byte bByte = 100;
+    System.out.println("Превышен максимальный размер! result = " + (aByte + bByte)); // Превышен максимальный размер! result = 200
+
+    System.out.println("Превышен максимальный размер! result = " + aByte + bByte); // вывод без скобок будет выглядеть так: Превышен максимальный размер! result = 100100
+
+    // Комбинация integer and double
+    System.out.println("result = " + (c + d));
+
+
+
 
     // 5. Тернарный
     int value = (methodOne())
